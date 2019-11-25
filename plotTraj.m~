@@ -32,26 +32,23 @@ for i = 1:params.m
     psipoly = [psipoly;psipol];
 end
 
-% xpoly = vpa(xpoly)
-% ypoly = vpa(ypoly)
-% zpoly = vpa(zpoly)
-% 
-% subs(xpoly(1),t,1)
-% subs(xpoly(2),t,1)
+xpoly = vpa(xpoly)
+ypoly = vpa(ypoly)
+zpoly = vpa(zpoly)
+
+subs(xpoly(1),t,1)
+subs(xpoly(2),t,1)
 
 figure(1)
 for i = 1:params.m
     fplot3(xpoly(i),ypoly(i),zpoly(i),[time(i),time(i+1)]);
-    hold on;
-    plot3(subs(xpoly(i),t,time(i)),subs(ypoly(i),t,time(i)),subs(zpoly(i),t,time(i)),'x');
-    hold on;
-    plot3(subs(xpoly(i),t,time(i+1)),subs(ypoly(i),t,time(i+1)),subs(zpoly(i),t,time(i+1)),'x');
+    plot3()
     hold on;
     grid on;
     axis([-2 2 -2 2 0 2]);
     axis on;
+    drawnow;
 end
-drawnow;
 
 
 end
